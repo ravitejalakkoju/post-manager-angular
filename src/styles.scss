@@ -29,6 +29,11 @@ html {
     outline: none !important;
 }
 
+ul, ol {
+	list-style: none;
+	padding: 0;
+}
+
 // logo
 
 .logo {
@@ -52,7 +57,8 @@ html {
 }
 	
 .main-content {
-    margin: 75px 0 0 0;	
+    margin: 60px 0 0 0;
+    padding: 1rem;	
 }
 
 // Users List 
@@ -81,9 +87,9 @@ html {
 .users-list-component {
 	background-color: map.get($theme-colors, "light-gray");
 	padding: 0.75rem;
-	margin: 0 1rem;
 	border-radius: 0.5rem;
 	max-height: 85vh;
+	height: fit-content;
 	overflow-y: scroll;
 	overflow-x: hidden;
 
@@ -95,15 +101,10 @@ html {
 		color: darken(map.get($theme-colors, "light-gray"), 50%);
 		margin: 0.5rem 0.5rem 1rem; 
 	}
-
-	.users-list {
-		list-style: none;
-		padding: 0;
-	}
 }
 
 .active {
-	background-color: darken(map.get($theme-colors, "light-gray"), 10%);
+	background-color: darken(map.get($theme-colors, "light-gray"), 5%);
 }
 
 .user-link {
@@ -117,7 +118,7 @@ html {
 	border-radius: 10px;
 
 	&:hover {
-		background-color: darken(map.get($theme-colors, "light-gray"), 10%);
+		background-color: darken(map.get($theme-colors, "light-gray"), 5%);
 	}
 
 	.user-profile {
@@ -134,13 +135,13 @@ html {
 
 		.user-name {
 			font-size: 0.8rem;
-			font-weight: 700;
+			font-weight: 500;
 			text-transform: capitalize;
 		}
 
 		.user-posts-count {
-			width: 1.05rem;
 			height: 1.05rem;
+			padding: 10px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -148,8 +149,59 @@ html {
 			color: map.get($theme-colors, "light-gray");
 			font-size: 0.75rem;
 			font-weight: 500;
-			border-radius: 50%;
+			border-radius: 1rem;
 		}
 	}
 }
 
+// posts section
+
+.posts-list {
+	padding: 0 2rem;
+}
+
+.post {
+	padding: 1.5rem;
+	border-radius: 10px;
+	box-shadow: 0 0 1rem 1rem lighten(map.get($theme-colors, "light-gray"), 2%);
+	margin-bottom: 2rem;
+	position: relative;
+
+	.post__title {
+		font-size: 1rem;
+	}
+
+	.post__content {
+		font-size: 0.95rem;
+		color: darken(map.get($theme-colors, "light-gray"), 50%);
+		margin: 0;
+	}
+
+	.btn-edit {
+		border: 0;
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+}
+
+.edit-post-component {
+	background-color: map.get($theme-colors, "light-gray");
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	max-height: 85vh;
+	height: fit-content;
+
+	.title {
+		font-size: 0.75rem;
+		letter-spacing: 1px;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: darken(map.get($theme-colors, "light-gray"), 50%);
+		margin: 0.5rem 0.5rem 1rem; 
+	}
+
+	.edit-post-form {
+		margin: 0 0.5rem;
+	}
+}

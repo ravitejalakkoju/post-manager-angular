@@ -11,7 +11,7 @@ export class PostsService {
 
   constructor(private apiService: ApiService) {}
 
-  getPostsByUser(userId: any): Observable<any[]>{
+  getPostsByUser(userId: number): Observable<any[]>{
     return this.apiService.getPostsByUser(userId);
   }
 }

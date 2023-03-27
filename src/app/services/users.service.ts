@@ -12,17 +12,7 @@ import { ApiService } from './api.service';
 })
 
 export class UsersService {
-  activeUser: number;
-
   constructor(private apiService: ApiService) {}
-
-  setActiveUser(id: number) {
-    this.activeUser = id;
-  }
-
-  getActiveUser() {
-    return this.activeUser;
-  }
 
   sortUsers(){
     USERS.sort((a,b) => a.name.localeCompare(b.name));

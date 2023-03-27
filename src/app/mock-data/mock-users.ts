@@ -20,7 +20,7 @@ export let USERS: any[] = [
 	    "createdAt": "2023-03-23T00:53:51.489Z",
 	    "name": "jennifer",
 	    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/351.jpg",
-	    "id": "51",
+	    "id": "35",
 	    "recent_posts": [
 	        {
 	            "createdAt": "2022-12-25T19:09:38.740Z",

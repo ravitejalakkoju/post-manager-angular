@@ -2,8 +2,7 @@
 	<h6 class="title">Users</h6>
 	<ul class="users-list">
 		<li *ngFor="let user of users">
-			<user [user]="user"></user>
+			<user [user]="user" [activeId]="activeId"></user>
 		</li>
 	</ul>
 </ng-container>
-{{activeId}}

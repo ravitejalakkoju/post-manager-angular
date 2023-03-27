@@ -4,6 +4,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 
 const usersRoutes: Routes = [
   {path: '', component: UsersListComponent, outlet: 'users' },
+  {path: ':id', redirectTo: ':id/posts'},
   {path: ':id/posts', loadChildren: () => import('../posts/posts.module').then(m => m.PostsModule)}
 ];
 

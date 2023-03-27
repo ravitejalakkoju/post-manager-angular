@@ -2,6 +2,6 @@
 	<img src="{{user.avatar}}" alt="profile-image" class="user-profile">
 	<div class="user-details">
 		<span class="user-name">{{user.name}}</span>
-		<span class="user-posts-count">{{user.totalPosts}}</span>
+		<span class="user-posts-count">{{user.totalPosts}} {{user.totalPosts == 1 ? 'Post' : 'Posts'}}</span>
 	</div>
 </a>

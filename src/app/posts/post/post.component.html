@@ -1,4 +1,7 @@
-<a [routerLink]="[postDetails.id]">
-	{{postDetails.Title}}
-	{{postDetails.content}}
-</a>
+<ng-container>
+	<h4 class="post__title">{{postDetails.Title}}</h4>
+	<p class="post__content">
+		{{postDetails.content}}
+	</p>
+	<button (click)="editPost(postDetails.id)" class="btn-edit">Edit</button>
+</ng-container>

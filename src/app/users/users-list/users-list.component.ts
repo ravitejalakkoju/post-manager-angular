@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from '../../models/user';
 
 import { UsersService } from '../../services/users.service';
+import { IdTrackerService } from '../../services/id-tracker.service';
 
 @Component({
   selector: 'users-list',
@@ -12,19 +13,25 @@ import { UsersService } from '../../services/users.service';
 
 export class UsersListComponent {
   users: User[];
-  activeId: number;
+  activeId: number = 0;
 
-  constructor(private activatedRoute: ActivatedRoute, private usersService: UsersService) {}
+  constructor(private route: ActivatedRoute, private usersService: UsersService, public idTrackerService: IdTrackerService) {}
 
   ngOnInit(): void {
     this.getUsers();
-    this.activatedRoute.paramMap.subscribe(params => {
-      console.log(params);
-    });
+    this.idTrackerService.currentUser.subscribe(id => {
+      this.activeId = id;
+    })
+    // setTimeout(() => { 
+    //   this.idTrackerService.currentUser.subscribe(id => {
+    //     this.activeId = id;
+    //   })
+    // }, 0);
+    
   }
 
   getUsers(){
-    this.usersService.getUsers()
+    this.usersService.getMockUsers()
     .subscribe(users => this.users = users.map(user => new User(user)));
   }
 }
