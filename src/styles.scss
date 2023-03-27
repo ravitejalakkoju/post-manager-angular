@@ -1,1 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+$theme-colors: (
+	"light-gray": #F1F4F7,
+	"light-blue": #97CAFB,
+	"medium-blue": #74B0EF,
+	"dark-blue": #3F71A4,
+	"very-dark-blue": #252D3C,
+	"dull-violet": #B1A6B1,
+	"bright-blue": #36B4D3,
+	"brown": #BA6142
+);
+
+// root styles
+
+html, body{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html {
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 16px;
+}
+
+*:focus{
+    outline: none !important;
+}
+
+// logo
+
+.logo {
+	position: absolute;
+	top: 20px;
+	left: 1.5rem;
+
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	.logo__img {
+		height: 35px;
+	}
+
+	.heading {
+		text-transform: uppercase;
+		font-size: 1.25rem;
+		letter-spacing: 1px;
+	}
+}
+	
+.main-content {
+    margin: 75px 0 0 0;	
+}
+
+// Users List 
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: darken(map.get($theme-colors, "light-gray"), 10%); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darken(map.get($theme-colors, "light-gray"), 20%); 
+}
+
+.users-list-component {
+	background-color: map.get($theme-colors, "light-gray");
+	padding: 0.75rem;
+	margin: 0 1rem;
+	border-radius: 0.5rem;
+	max-height: 85vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	.title {
+		font-size: 0.75rem;
+		letter-spacing: 1px;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: darken(map.get($theme-colors, "light-gray"), 50%);
+		margin: 0.5rem 0.5rem 1rem; 
+	}
+
+	.users-list {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+.active {
+	background-color: darken(map.get($theme-colors, "light-gray"), 10%);
+}
+
+.user-link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	text-decoration: none;
+	color: black;
+	margin: 0.5rem 0;
+	padding: 0.25rem 0.5rem;
+
+	&:hover {
+		background-color: darken(map.get($theme-colors, "light-gray"), 10%);
+		border-radius: 10px;
+	}
+
+	.user-profile {
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+	}
+
+	.user-details {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+
+		.user-name {
+			font-size: 0.8rem;
+			font-weight: 700;
+			text-transform: capitalize;
+		}
+
+		.user-posts-count {
+			width: 1.05rem;
+			height: 1.05rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: darken(blue, 15%);
+			color: map.get($theme-colors, "light-gray");
+			font-size: 0.75rem;
+			font-weight: 500;
+			border-radius: 50%;
+		}
+	}
+}
+
