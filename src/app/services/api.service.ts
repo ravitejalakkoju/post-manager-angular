@@ -17,4 +17,8 @@ export class ApiService {
   getUsers(): Observable<any> {
     return this.http.get(this.baseUrl + 'users');
   }
+
+  getPostsByUser(userId: any): Observable<any> {
+    return this.http.get(this.baseUrl + 'users' + '/' + userId + '/' + 'posts');
+  }
 }

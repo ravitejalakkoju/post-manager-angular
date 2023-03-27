@@ -1,0 +1,8 @@
+<ng-container *ngIf="posts">
+	<p>posts-list works! {{posts.length}}</p>
+	<ul class="posts-list">
+		<li *ngFor="let post of posts">
+			<post [postDetails]="post"></post>
+		</li>
+	</ul>
+</ng-container>

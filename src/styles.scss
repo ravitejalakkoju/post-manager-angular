@@ -114,10 +114,10 @@ html {
 	color: black;
 	margin: 0.5rem 0;
 	padding: 0.25rem 0.5rem;
+	border-radius: 10px;
 
 	&:hover {
 		background-color: darken(map.get($theme-colors, "light-gray"), 10%);
-		border-radius: 10px;
 	}
 
 	.user-profile {

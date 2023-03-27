@@ -1,4 +1,4 @@
-<a [routerLink]="[user.id, 'posts']" class="user-link">
+<a [routerLink]="[user.id, 'posts']" class="user-link" [class.active]="user.id == activeId">
 	<img src="{{user.avatar}}" alt="profile-image" class="user-profile">
 	<div class="user-details">
 		<span class="user-name">{{user.name}}</span>

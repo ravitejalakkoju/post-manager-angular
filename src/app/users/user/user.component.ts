@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { User } from '../../models/user';
 
 @Component({
@@ -7,4 +8,5 @@ import { User } from '../../models/user';
 })
 export class UserComponent {
   @Input() user: User;
+  @Input() activeId: number;
 }
