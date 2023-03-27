@@ -22,12 +22,6 @@ export class UsersListComponent {
     this.idTrackerService.currentUser.subscribe(id => {
       this.activeId = id;
     }, error => error)
-    // setTimeout(() => { 
-    //   this.idTrackerService.currentUser.subscribe(id => {
-    //     this.activeId = id;
-    //   })
-    // }, 0);
-    
   }
 
   getUsers(){
