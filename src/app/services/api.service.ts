@@ -21,4 +21,12 @@ export class ApiService {
   getPostsByUser(userId: number): Observable<any> {
     return this.http.get(this.baseUrl + 'users' + '/' + userId + '/' + 'posts');
   }
+
+  createPost(newPost: any): Observable<any> {
+    return this.http.post(this.baseUrl + 'users' + '/' + newPost.userId + '/' + 'posts', newPost);
+  }
+
+  updatePost(updatedPost: any): Observable<any> {
+    return this.http.put(this.baseUrl + 'users' + '/' + updatedPost.userId + '/' + 'posts' + '/' + updatedPost.id, updatedPost);
+  }
 }

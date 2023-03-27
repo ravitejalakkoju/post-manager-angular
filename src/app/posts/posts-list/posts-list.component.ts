@@ -10,6 +10,7 @@ import { IdTrackerService } from '../../services/id-tracker.service';
 })
 
 export class PostsListComponent {
+  userId: number;
   posts: any[];
   selectedPost: any;
 
@@ -17,9 +18,9 @@ export class PostsListComponent {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
-      let userId = Number(params.get('id'));
-      this.idTrackerService.updateUser(userId);
-      this.getPosts(userId);
+      this.userId = Number(params.get('id'));
+      this.idTrackerService.updateUser(this.userId);
+      this.getPosts(this.userId);
     });
   }
 
@@ -30,5 +31,10 @@ export class PostsListComponent {
 
   openEditPost(postId: number) {
     this.selectedPost = this.posts.find(post => post.id == postId);
+  }
+
+  updatePostsList(post: any) {
+    this.posts = this.posts.filter(p => p.id != post.id);
+    this.posts.push(post);
   }
 }

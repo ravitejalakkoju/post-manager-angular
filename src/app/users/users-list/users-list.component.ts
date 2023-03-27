@@ -21,7 +21,7 @@ export class UsersListComponent {
     this.getUsers();
     this.idTrackerService.currentUser.subscribe(id => {
       this.activeId = id;
-    })
+    }, error => error)
     // setTimeout(() => { 
     //   this.idTrackerService.currentUser.subscribe(id => {
     //     this.activeId = id;
@@ -31,7 +31,7 @@ export class UsersListComponent {
   }
 
   getUsers(){
-    this.usersService.getMockUsers()
+    this.usersService.getUsers()
     .subscribe(users => this.users = users.map(user => new User(user)));
   }
 }

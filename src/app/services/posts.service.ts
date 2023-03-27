@@ -14,4 +14,12 @@ export class PostsService {
   getPostsByUser(userId: number): Observable<any[]>{
     return this.apiService.getPostsByUser(userId);
   }
+
+  createPost(newPost: any): Observable<any> {
+    return this.apiService.createPost(newPost);
+  }
+
+  updatePost(updatedPost: any): Observable<any> {
+    return this.apiService.updatePost(updatedPost);
+  }
 }

@@ -182,6 +182,11 @@ ul, ol {
 		position: absolute;
 		top: 1rem;
 		right: 1rem;
+		background-color: transparent;
+
+		&:hover {
+			color: lighten(blue, 10%);
+		}
 	}
 }
 
@@ -199,9 +204,45 @@ ul, ol {
 		text-transform: uppercase;
 		color: darken(map.get($theme-colors, "light-gray"), 50%);
 		margin: 0.5rem 0.5rem 1rem; 
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.btn-new {
+			border: none;
+			background: transparent;
+			font-weight: 700;
+			color: darken(blue, 20%);
+		}
 	}
 
 	.edit-post-form {
 		margin: 0 0.5rem;
+		padding: 1rem 0;
+		font-size: 1rem;
+
+		.form-content {
+			min-height: 300px;
+		}
+
+		.btn-submit {
+			width: 100%;
+			text-align: center;
+			border-radius: 10px;
+			border: none;	
+			background-color: #00edf5;		
+			color: darken(blue, 20%);
+			padding: 0.5rem 0;
+			font-weight: 500;
+			letter-spacing: 1px;
+
+			&:hover {
+				background-color: darken(#00edf5, 5%);		
+			}
+		}
+
+		.validation-note {
+			font-size: 0.8rem;
+		}
 	}
 }

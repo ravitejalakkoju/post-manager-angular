@@ -1,10 +1,10 @@
 <div *ngIf="posts" class="row">
-	<ul class="posts-list col-12 col-md-7 p-0 mt-4 mt-md-0 px-md-4">
+	<ul class="posts-list col-12 col-md-7 p-0 mt-4 mt-md-0 px-md-5">
 		<li *ngFor="let post of posts" class="post">
 			<post [postDetails]="post" (buttonClick)="openEditPost($event)"></post>
 		</li>
 	</ul>
-	<div class="col-12 col-md-5 p-0" *ngIf="selectedPost">
-		<edit-post [postDetails]="selectedPost"></edit-post>
+	<div class="col-12 col-md-5 p-0">
+		<post-form [postDetails]="selectedPost" (updatePosts)="updatePostsList($event)"></post-form>
 	</div>
 </div>
