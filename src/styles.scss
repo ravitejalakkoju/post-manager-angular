@@ -333,13 +333,22 @@ ul, ol {
 		margin: 0 0.5rem;
 		padding: 1rem 0;
 		font-size: 1rem;
-
+		position: relative;
+		
 		.form-content {
 			min-height: 300px;
 
 			@media screen and (max-width: $medium) {
 				min-height: 100px;
 			}
+		}
+
+		.word-count {
+			font-size: 0.75rem;
+			color: darken(map.get($theme-colors, "light-gray"), 50%);
+			width: 100%;
+			text-align: right;
+			position: absolute;
 		}
 
 		.btn-submit {

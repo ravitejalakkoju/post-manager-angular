@@ -20,7 +20,7 @@ export class PostFormComponent {
     id: new FormControl(''),
     userId: new FormControl(''),
     Title: new FormControl('', [Validators.maxLength(40), Validators.required]),
-    content: new FormControl('', [Validators.required])
+    content: new FormControl('', [Validators.maxLength(500), Validators.required])
   });
 
   constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute) {}

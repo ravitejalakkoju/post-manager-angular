@@ -10,9 +10,17 @@
 		    </ng-container>
 		</div>
 		<div class="col-12 my-4" *ngIf="content">
-		    <textarea type="textarea" id="content" formControlName="content" placeholder="Content" [class.is-invalid]="content?.invalid && content?.touched" class="form-control rounded border-0 form-content"></textarea>
+		    <div>
+		    	<textarea type="textarea" id="content" formControlName="content" placeholder="Content" [class.is-invalid]="content.invalid && content.touched" class="form-control rounded border-0 form-content"></textarea>
+		    	<div class="word-count">
+		    		<span>{{content.value.length}}</span>
+		    		<span>/</span>
+		    		<span>500</span>
+		    	</div>
+		    </div>
 		    <ng-container *ngIf="content.errors">
 		    	<span class="validation-note text-danger" [class.d-none]="!(content.errors['required'] && content.invalid && content.touched)">Content is required</span>
+		    	<span class="validation-note text-danger" [class.d-none]="!(content.errors['maxlength'] && content.invalid && content.touched)">Maximum allowed length is 500</span>
 		    </ng-container>
 		</div>
 		<button type="submit" class="btn-submit">{{postDetails ? 'Update' : 'Create' }} Post</button>
