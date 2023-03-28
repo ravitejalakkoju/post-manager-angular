@@ -104,7 +104,8 @@ ul, ol {
 		height: fit-content;
 
 		.users-list {
-			max-height: 75vh;
+			height: 75vh;
+			max-height: 700px;
 			overflow-y: scroll;
 			overflow-x: hidden;
 			padding-right: 0.25rem;
