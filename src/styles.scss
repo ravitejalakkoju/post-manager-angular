@@ -141,41 +141,6 @@ ul, ol {
 		border-radius: 0.5rem;
 		height: fit-content;
 
-		.users-list-header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin: 0.5rem 0.5rem 1rem; 
-			letter-spacing: 1px;
-			font-weight: 500;
-			
-			.title {
-				font-size: 0.75rem;
-				text-transform: uppercase;
-				color: darken(map.get($theme-colors, "light-gray"), 50%);
-				margin: 0;
-			}
-
-			.btn-sort {
-				font-size: 1rem;
-				background-color: transparent;
-				border: transparent;
-				padding: 0 0.5rem;
-				color: darken(map.get($theme-colors, "light-gray"), 50%);
-				border-radius: 5px;
-
-				&:hover {
-					color: darken(blue, 15%);
-				}
-			}
-
-			.btn-disabled {
-				pointer-events: none;
-				color: darken(map.get($theme-colors, "light-gray"), 25%);
-
-			}
-		}
-
 		.users-list {
 			height: 75vh;
 			max-height: 700px;
@@ -186,6 +151,35 @@ ul, ol {
 
 		@media screen and (max-width: $small) {
 			display: none;
+		}
+	}
+
+	.users-list-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0.5rem 0.5rem 1rem; 
+		letter-spacing: 1px;
+		font-weight: 500;
+		
+		.title {
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			color: darken(map.get($theme-colors, "light-gray"), 50%);
+			margin: 0;
+		}
+
+		.btn-sort {
+			font-size: 1rem;
+			background-color: transparent;
+			border: transparent;
+			padding: 0 0.5rem;
+			color: darken(map.get($theme-colors, "light-gray"), 50%);
+			border-radius: 5px;
+
+			&:hover {
+				color: darken(blue, 15%);
+			}
 		}
 	}
 
