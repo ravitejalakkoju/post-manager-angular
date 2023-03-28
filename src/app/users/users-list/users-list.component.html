@@ -1,7 +1,10 @@
 <ng-container>
 	<div class="users-list-header">
 		<h6 class="title">Users</h6>
-		<button class="btn-sort" (click)="sortUsers()" [class.btn-disabled]="isListSorted" [disabled]="isListSorted"><i class="fa-solid fa-arrow-up-a-z"></i></button>
+		<button class="btn-sort" (click)="sortUsers()">
+			<i class="fa-solid fa-arrow-down-z-a" *ngIf="isAZSorted"></i>
+			<i class="fa-solid fa-arrow-down-a-z" *ngIf="!isAZSorted"></i>
+		</button>
 	</div>
 	<ul class="users-list">
 		<li *ngFor="let user of users">
