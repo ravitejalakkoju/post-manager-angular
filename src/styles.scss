@@ -157,18 +157,22 @@ ul, ol {
 			}
 
 			.btn-sort {
-				font-size: 0.9rem;
+				font-size: 1rem;
 				background-color: transparent;
-				border: 1px solid darken(map.get($theme-colors, "light-gray"), 50%);
+				border: transparent;
 				padding: 0 0.5rem;
 				color: darken(map.get($theme-colors, "light-gray"), 50%);
 				border-radius: 5px;
-				font-weight: 500;
 
 				&:hover {
-					background-color: darken(map.get($theme-colors, "light-gray"), 50%);
-					color: white;
+					color: darken(blue, 15%);
 				}
+			}
+
+			.btn-disabled {
+				pointer-events: none;
+				color: darken(map.get($theme-colors, "light-gray"), 25%);
+
 			}
 		}
 

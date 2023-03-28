@@ -1,10 +1,10 @@
 <ng-container>
 	<div class="users-list-header">
 		<h6 class="title">Users</h6>
-		<button class="btn-sort" (click)="toggleSort()">{{isListSorted ? 'Unsort' : 'Sort'}}</button>
+		<button class="btn-sort" (click)="sortUsers()" [class.btn-disabled]="isListSorted" [disabled]="isListSorted"><i class="fa-solid fa-arrow-up-a-z"></i></button>
 	</div>
 	<ul class="users-list">
-		<li *ngFor="let user of usersList">
+		<li *ngFor="let user of users">
 			<user [user]="user" [activeId]="activeId"></user>
 		</li>
 	</ul>

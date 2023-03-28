@@ -14,12 +14,7 @@ export class UsersListComponent {
   @Input() users: User[];
   @Input() activeId: number;
 
-  usersList: User[];
   isListSorted: boolean = false;
-
-  ngOnInit() {
-    this.usersList = this.users.map(u => u);
-  }
 
   compareByName(user1: User, user2: User) {
     if (user1.name < user2.name) {
@@ -31,12 +26,8 @@ export class UsersListComponent {
     return 0;
   }
 
-  toggleSort() {
-    // this.sortUsersList.emit(true);
-    if(!this.isListSorted)
-      this.usersList.sort(this.compareByName);
-    else 
-      this.usersList = this.users.map(u => u);
-    this.isListSorted = !this.isListSorted;
+  sortUsers() {
+    this.users.sort(this.compareByName);
+    this.isListSorted = true;
   }
 }
