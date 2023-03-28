@@ -1,14 +1,19 @@
-<div class="post-form-component">
+<div class="post-form-component" *ngIf="postForm">
 	<h5 class="title"><span>{{postDetails ? 'Edit' : 'Create' }} Post</span><button class="btn-new" *ngIf="postDetails" (click)="clearForm()">New!</button></h5>
 	<form class="post-form needs-validation" [formGroup]="postForm" (ngSubmit)="onSubmit()" novalidate>
-		<div class="col-12">
+		<div class="col-12" *ngIf="title">
 		    <input type="text" id="title" formControlName="Title" placeholder="Title"
-		    [class.is-invalid]="title?.invalid && title?.touched" class="form-control rounded border-0" required>
-		    <span class="validation-note text-danger" [class.d-none]="title?.valid || title?.untouched">Title is required</span>
+		    [class.is-invalid]="title.invalid && title.touched" class="form-control rounded border-0" required>
+		    <ng-container *ngIf="title.errors">
+		    	<span class="validation-note text-danger" [class.d-none]="!(title.errors['required'] && title.invalid && title.touched)">Title is required</span>
+		    	<span class="validation-note text-danger" [class.d-none]="!(title.errors['maxlength'] && title.invalid && title.touched)">Maximum allowed length is 30</span>
+		    </ng-container>
 		</div>
-		<div class="col-12 my-4">
+		<div class="col-12 my-4" *ngIf="content">
 		    <textarea type="textarea" id="content" formControlName="content" placeholder="Content" [class.is-invalid]="content?.invalid && content?.touched" class="form-control rounded border-0 form-content"></textarea>
-		    <span class="validation-note text-danger" [class.d-none]="content?.valid || content?.untouched">Content is required</span>
+		    <ng-container *ngIf="content.errors">
+		    	<span class="validation-note text-danger" [class.d-none]="!(content.errors['required'] && content.invalid && content.touched)">Content is required</span>
+		    </ng-container>
 		</div>
 		<button type="submit" class="btn-submit">{{postDetails ? 'Update' : 'Create' }} Post</button>
 	</form>

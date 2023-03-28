@@ -19,7 +19,7 @@ export class PostFormComponent {
   postForm: FormGroup = new FormGroup({
     id: new FormControl(''),
     userId: new FormControl(''),
-    Title: new FormControl('', [Validators.required]),
+    Title: new FormControl('', [Validators.maxLength(40), Validators.required]),
     content: new FormControl('', [Validators.required])
   });
 
