@@ -1,4 +1,4 @@
-<ng-container *ngIf="users">
+<ng-container *ngIf="users; else elseBlock">
 	<div class="users-list-view">
 		<users-list [users]="users" [activeId]="activeId"></users-list>
 	</div>
@@ -6,4 +6,7 @@
 		<users-dropdown [users]="users" [activeId]="activeId"></users-dropdown>
 	</div>
 </ng-container>
+<ng-template #elseBlock>
+	<loader></loader>
+</ng-template>
 
