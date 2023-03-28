@@ -13,7 +13,8 @@ import { ChangeTrackerService } from '../../services/change-tracker.service';
 export class PostFormComponent {
   @Input() postDetails: any;
   @Output() updatePosts = new EventEmitter<any>();
-  
+  @Output() clearPostDetails = new EventEmitter<any>();
+
   userId: number;
 
   postForm: FormGroup = new FormGroup({
@@ -47,6 +48,7 @@ export class PostFormComponent {
 
   clearForm() {
     this.postDetails = null;
+    this.clearPostDetails.emit(this.postDetails);
     this.postForm.reset();
   }
 

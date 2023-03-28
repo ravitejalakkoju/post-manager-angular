@@ -1,5 +1,5 @@
 <div class="post-form-component" *ngIf="postForm">
-	<h5 class="title"><span>{{postDetails ? 'Edit' : 'Create' }} Post</span><button class="btn-new" *ngIf="postDetails" (click)="clearForm()">New!</button></h5>
+	<h5 class="title"><span>{{postDetails ? 'Edit' : 'Create' }} Post</span><button class="btn-new" *ngIf="postDetails" (click)="clearForm()">New Post ?</button></h5>
 	<form class="post-form needs-validation" [formGroup]="postForm" (ngSubmit)="onSubmit()" novalidate>
 		<div class="col-12" *ngIf="title">
 		    <input type="text" id="title" formControlName="Title" placeholder="Title"
@@ -13,7 +13,7 @@
 		    <div>
 		    	<textarea type="textarea" id="content" formControlName="content" placeholder="Content" [class.is-invalid]="content.invalid && content.touched" class="form-control rounded border-0 form-content"></textarea>
 		    	<div class="word-count">
-		    		<span>{{content.value.length}}</span>
+		    		<span>{{content.value?.length || 0}}</span>
 		    		<span>/</span>
 		    		<span>500</span>
 		    	</div>

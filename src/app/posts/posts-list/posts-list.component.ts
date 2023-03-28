@@ -43,4 +43,8 @@ export class PostsListComponent {
     this.posts = this.posts.filter(p => p.id != post.id);
     this.posts.push(post);
   }
+
+  clearSelectedPost() {
+    this.selectedPost = null;
+  }
 }

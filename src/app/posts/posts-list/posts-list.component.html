@@ -9,8 +9,8 @@
 		</ng-container>
 		
 	</ul>
-	<div class="col-12 col-lg-5 p-0 px-md-4 pe-lg-0 ps-lg-3 mt-4 mt-md-0 order-1 order-lg-2">
-		<post-form [postDetails]="selectedPost" (updatePosts)="updatePostsList($event)"></post-form>
+	<div class="col-12 col-lg-5 p-0 px-md-4 pe-lg-0 ps-lg-3 order-1 order-lg-2">
+		<post-form [postDetails]="selectedPost" (updatePosts)="updatePostsList($event)" (clearPostDetails)="clearSelectedPost()"></post-form>
 	</div>
 </div>
 <ng-template #loaderBlock>
