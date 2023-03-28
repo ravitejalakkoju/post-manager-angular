@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { User } from '../models/user';
 
@@ -13,7 +14,7 @@ export class UsersComponent {
   users: User[];
   activeId: number = 0;
 
-  constructor(private usersService: UsersService, public changeTrackerService: ChangeTrackerService) {}
+  constructor(private usersService: UsersService, public changeTrackerService: ChangeTrackerService, private router: Router) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -31,7 +32,8 @@ export class UsersComponent {
     this.usersService.getUsers()
     .subscribe(users => {
       this.users = users.map(user => new User(user));
-      this.activeId = this.activeId ?? users[0].id;
+      this.activeId = this.activeId || users[0].id;
+      this.router.navigate(['users', this.activeId]);
     });
   }
 }
