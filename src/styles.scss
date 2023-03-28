@@ -85,7 +85,7 @@ ul, ol {
   justify-content: center;
   align-items: center;
   height: 50vh;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -96,6 +96,11 @@ ul, ol {
   width: 60px;
   height: 60px;
   animation: spin 2s linear infinite;
+}
+
+.full-loader {
+	height: 50vh;
+	width: 100vw;
 }
 
 @keyframes spin {

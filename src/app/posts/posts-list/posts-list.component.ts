@@ -14,6 +14,8 @@ export class PostsListComponent {
   posts: any[];
   selectedPost: any;
 
+  isLoading: boolean;
+
   constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService, private changeTrackerService: ChangeTrackerService) {}
 
   ngOnInit() {
@@ -25,8 +27,12 @@ export class PostsListComponent {
   }
 
   getPosts(userId: number) {
+    this.isLoading = true;
     this.postsService.getPostsByUser(userId)
-    .subscribe(posts => this.posts = posts)
+    .subscribe(posts => {
+      this.posts = posts
+      this.isLoading = false;
+    })
   }
 
   openEditPost(postId: number) {
