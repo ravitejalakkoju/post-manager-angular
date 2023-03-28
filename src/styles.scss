@@ -133,20 +133,44 @@ ul, ol {
 }
 
 .users-list-component {
-	.title {
-		font-size: 0.75rem;
-		letter-spacing: 1px;
-		font-weight: 500;
-		text-transform: uppercase;
-		color: darken(map.get($theme-colors, "light-gray"), 50%);
-		margin: 0.5rem 0.5rem 1rem; 
-	}
+	
 
 	.users-list-view {
 		background-color: map.get($theme-colors, "light-gray");
 		padding: 0.75rem;
 		border-radius: 0.5rem;
 		height: fit-content;
+
+		.users-list-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin: 0.5rem 0.5rem 1rem; 
+			letter-spacing: 1px;
+			font-weight: 500;
+			
+			.title {
+				font-size: 0.75rem;
+				text-transform: uppercase;
+				color: darken(map.get($theme-colors, "light-gray"), 50%);
+				margin: 0;
+			}
+
+			.btn-sort {
+				font-size: 0.9rem;
+				background-color: transparent;
+				border: 1px solid darken(map.get($theme-colors, "light-gray"), 50%);
+				padding: 0 0.5rem;
+				color: darken(map.get($theme-colors, "light-gray"), 50%);
+				border-radius: 5px;
+				font-weight: 500;
+
+				&:hover {
+					background-color: darken(map.get($theme-colors, "light-gray"), 50%);
+					color: white;
+				}
+			}
+		}
 
 		.users-list {
 			height: 75vh;

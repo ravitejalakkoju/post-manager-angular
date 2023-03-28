@@ -1,7 +1,10 @@
 <ng-container>
-	<h6 class="title">Users</h6>
+	<div class="users-list-header">
+		<h6 class="title">Users</h6>
+		<button class="btn-sort" (click)="toggleSort()">{{isListSorted ? 'Unsort' : 'Sort'}}</button>
+	</div>
 	<ul class="users-list">
-		<li *ngFor="let user of users">
+		<li *ngFor="let user of usersList">
 			<user [user]="user" [activeId]="activeId"></user>
 		</li>
 	</ul>
