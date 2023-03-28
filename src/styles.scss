@@ -12,6 +12,9 @@ $theme-colors: (
 	"brown": #BA6142
 );
 
+$small: '764px';
+$medium: '991px';
+
 // root styles
 
 html, body{
@@ -85,14 +88,6 @@ ul, ol {
 }
 
 .users-list-component {
-	background-color: map.get($theme-colors, "light-gray");
-	padding: 0.75rem;
-	border-radius: 0.5rem;
-	max-height: 85vh;
-	height: fit-content;
-	overflow-y: scroll;
-	overflow-x: hidden;
-
 	.title {
 		font-size: 0.75rem;
 		letter-spacing: 1px;
@@ -101,10 +96,29 @@ ul, ol {
 		color: darken(map.get($theme-colors, "light-gray"), 50%);
 		margin: 0.5rem 0.5rem 1rem; 
 	}
+
+	.users-list-view {
+		background-color: map.get($theme-colors, "light-gray");
+		padding: 0.75rem;
+		border-radius: 0.5rem;
+		height: fit-content;
+
+		.users-list {
+			max-height: 85vh;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			padding-right: 0.25rem;
+		}
+
+		@media screen and (max-width: $small) {
+			// display: none;
+		}
+	}
+
 }
 
 .active {
-	background-color: darken(map.get($theme-colors, "light-gray"), 5%);
+	background-color: darken(map.get($theme-colors, "light-gray"), 10%);
 }
 
 .user-link {
@@ -118,7 +132,7 @@ ul, ol {
 	border-radius: 10px;
 
 	&:hover {
-		background-color: darken(map.get($theme-colors, "light-gray"), 5%);
+		background-color: darken(map.get($theme-colors, "light-gray"), 10%);
 	}
 
 	.user-profile {
@@ -156,10 +170,6 @@ ul, ol {
 
 // posts section
 
-.posts-list {
-	padding: 0 2rem;
-}
-
 .post {
 	padding: 1.5rem;
 	border-radius: 10px;
@@ -191,7 +201,7 @@ ul, ol {
 	}
 }
 
-.edit-post-component {
+.post-form-component {
 	background-color: map.get($theme-colors, "light-gray");
 	padding: 0.75rem;
 	border-radius: 0.5rem;
@@ -217,13 +227,17 @@ ul, ol {
 		}
 	}
 
-	.edit-post-form {
+	.post-form {
 		margin: 0 0.5rem;
 		padding: 1rem 0;
 		font-size: 1rem;
 
 		.form-content {
 			min-height: 300px;
+
+			@media screen and (max-width: $medium) {
+				min-height: 100px;
+			}
 		}
 
 		.btn-submit {
@@ -231,14 +245,14 @@ ul, ol {
 			text-align: center;
 			border-radius: 10px;
 			border: none;	
-			background-color: #00edf5;		
-			color: darken(blue, 20%);
+			background-color: darken(blue, 20%);		
+			color: #00edf5;
 			padding: 0.5rem 0;
 			font-weight: 500;
 			letter-spacing: 1px;
 
 			&:hover {
-				background-color: darken(#00edf5, 5%);		
+				background-color: darken(blue, 30%);		
 			}
 		}
 

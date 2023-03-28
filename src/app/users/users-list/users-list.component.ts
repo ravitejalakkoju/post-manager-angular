@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../models/user';
 
@@ -14,18 +13,24 @@ import { IdTrackerService } from '../../services/id-tracker.service';
 export class UsersListComponent {
   users: User[];
   activeId: number = 0;
+  activeUser: User | undefined;
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService, public idTrackerService: IdTrackerService) {}
+  constructor(private usersService: UsersService, public idTrackerService: IdTrackerService) {}
 
   ngOnInit(): void {
     this.getUsers();
+    
     this.idTrackerService.currentUser.subscribe(id => {
       this.activeId = id;
+      this.activeUser = this.users?.find(user => user.id == this.activeId);
     }, error => error)
   }
 
   getUsers(){
     this.usersService.getUsers()
-    .subscribe(users => this.users = users.map(user => new User(user)));
+    .subscribe(users => this.users = users.map(user => {
+      if(this.activeId == user.id) this.activeUser = user;
+      return new User(user);
+    }));
   }
 }

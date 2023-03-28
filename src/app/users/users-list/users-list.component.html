@@ -1,8 +1,9 @@
-<ng-container>
+<div class="users-list-view">
 	<h6 class="title">Users</h6>
+	<!-- <user [user]="activeUser" [activeId]="activeId"></user> -->
 	<ul class="users-list">
 		<li *ngFor="let user of users">
 			<user [user]="user" [activeId]="activeId"></user>
 		</li>
 	</ul>
-</ng-container>
+</div>
