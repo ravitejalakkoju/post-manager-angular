@@ -269,6 +269,7 @@ ul, ol {
 	}
 }
 
+
 // posts section
 
 .post {
@@ -361,4 +362,15 @@ ul, ol {
 			font-size: 0.8rem;
 		}
 	}
+}
+
+
+.no-posts-message {
+	width: 100%;
+	height: 50vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	justify-content: center;
+	color: darken(map.get($theme-colors, "light-gray"), 25%);
 }

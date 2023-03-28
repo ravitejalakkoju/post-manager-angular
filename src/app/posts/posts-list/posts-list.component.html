@@ -1,9 +1,11 @@
 <div *ngIf="posts" class="row">
 	<ul class="posts-list col-12 col-lg-7 p-0 px-md-4 px-lg-3 mt-4 mt-lg-0 order-2 order-lg-1">
-		<ng-container *ngIf="!isLoading; else elseBlock">
-			<li *ngFor="let post of posts" class="post">
-				<post [postDetails]="post" (buttonClick)="openEditPost($event)"></post>
-			</li>
+		<ng-container *ngIf="!isLoading; else loaderBlock">
+			<ng-container *ngIf="posts.length; else noPostsBlock">
+				<li *ngFor="let post of posts" class="post">
+					<post [postDetails]="post" (buttonClick)="openEditPost($event)"></post>
+				</li>
+			</ng-container>
 		</ng-container>
 		
 	</ul>
@@ -11,6 +13,9 @@
 		<post-form [postDetails]="selectedPost" (updatePosts)="updatePostsList($event)"></post-form>
 	</div>
 </div>
-<ng-template #elseBlock>
+<ng-template #loaderBlock>
 	<loader></loader>
+</ng-template>
+<ng-template #noPostsBlock>
+	<p class="no-posts-message">No posts by user</p>
 </ng-template>
