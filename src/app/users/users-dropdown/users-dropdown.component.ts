@@ -19,7 +19,12 @@ export class UsersDropdownComponent {
     }
     return this.activeUser = this.users?.find(user => user.id == this.activeId);
   }
-  
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['activeId'])
+      this.showUserList = false;
+  }
+
   toggleDropdown() {
     this.showUserList = !this.showUserList;
   }

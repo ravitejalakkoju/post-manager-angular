@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../../models/user';
 
@@ -13,11 +13,4 @@ import { ChangeTrackerService } from '../../services/change-tracker.service';
 export class UsersListComponent {
   @Input() users: User[];
   @Input() activeId: number;
-
-  @Output() userSelected = new EventEmitter<number>();
-
-  ngOnChanges(changes: SimpleChanges) {
-    if(changes['activeId'])
-      this.userSelected.emit(changes['activeId'].currentValue);
-  }
 }
