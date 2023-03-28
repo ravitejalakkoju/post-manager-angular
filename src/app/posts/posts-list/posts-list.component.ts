@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from '../../services/posts.service';
-import { IdTrackerService } from '../../services/id-tracker.service';
+import { ChangeTrackerService } from '../../services/change-tracker.service';
 
 @Component({
   selector: 'app-posts-list',
@@ -14,12 +14,12 @@ export class PostsListComponent {
   posts: any[];
   selectedPost: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService, private idTrackerService: IdTrackerService) {}
+  constructor(private activatedRoute: ActivatedRoute, private postsService: PostsService, private changeTrackerService: ChangeTrackerService) {}
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.userId = Number(params.get('id'));
-      this.idTrackerService.updateUser(this.userId);
+      this.changeTrackerService.updateUser(this.userId);
       this.getPosts(this.userId);
     });
   }

@@ -1,0 +1,12 @@
+<ng-container *ngIf="currentUser">
+	<button [routerLink]="[currentUser.id, 'posts']" class="selected-user border-0 bg-transparent" (click)="toggleDropdown()">
+		<img src="{{currentUser.avatar}}" alt="profile-image" class="user-profile">
+		<div class="user-details">
+			<span class="user-name">{{currentUser.name}}</span>
+		</div>
+		<i class="fa-solid fa-caret-down"></i>
+	</button>
+	<div class="user-dropdown-list" *ngIf="showUserList">
+		<users-list [users]="users" [activeId]="activeId" (userSelected)="toggleDropdown()"></users-list>
+	</div>
+</ng-container>

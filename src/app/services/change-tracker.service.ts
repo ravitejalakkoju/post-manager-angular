@@ -5,7 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 
-export class IdTrackerService {
+export class ChangeTrackerService {
   currentUser = new Subject<number>();
 
   updateUser(userId: number) {

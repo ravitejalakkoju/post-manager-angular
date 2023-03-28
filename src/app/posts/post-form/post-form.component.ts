@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { PostsService } from '../../services/posts.service';
-import { IdTrackerService } from '../../services/id-tracker.service';
+import { ChangeTrackerService } from '../../services/change-tracker.service';
 
 @Component({
   selector: 'post-form',
@@ -13,6 +13,7 @@ import { IdTrackerService } from '../../services/id-tracker.service';
 export class PostFormComponent {
   @Input() postDetails: any;
   @Output() updatePosts = new EventEmitter<any>();
+  
   userId: number;
 
   postForm: FormGroup = new FormGroup({
@@ -32,6 +33,13 @@ export class PostFormComponent {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['postDetails']) {
+      this.postDetails = changes['postDetails'].currentValue;
+      this.updateForm();
+    }
+  }
+
   updateForm() {
     if(this.postDetails) 
       this.postForm.patchValue(this.postDetails);
@@ -40,13 +48,6 @@ export class PostFormComponent {
   clearForm() {
     this.postDetails = null;
     this.postForm.reset();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['postDetails']) {
-      this.postDetails = changes['postDetails'].currentValue;
-      this.updateForm();
-    }
   }
 
   get title(){
