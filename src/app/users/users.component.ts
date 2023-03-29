@@ -22,7 +22,6 @@ export class UsersComponent {
     
     this.changeTrackerService.currentUser.subscribe(id => {
       this.activeId = id;
-      console.log(this.activeId);
     }, error => error)
 
     this.changeTrackerService.postsUpdated.subscribe(() => {
@@ -46,6 +45,8 @@ export class UsersComponent {
   getUser(userId: number) {
     let index: number = this.users.findIndex(u => u.id == userId);
     this.usersService.getUser(userId)
-    .subscribe(user => Object.assign(this.users[index], new User(user)));
+    .subscribe(user => {
+      Object.assign(this.users[index], new User(user));
+    });
   }
 }

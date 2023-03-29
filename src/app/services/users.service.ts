@@ -12,6 +12,8 @@ import { ApiService } from './api.service';
 })
 
 export class UsersService {
+  private users: User[];
+
   constructor(private apiService: ApiService) {}
 
   sortUsers(){
@@ -22,6 +24,14 @@ export class UsersService {
     this.sortUsers();
     const users = of(USERS.map(user => user));
     return users;
+  }
+
+  setData(users: User[]) {
+    this.users = users;
+  }
+
+  getData(): User[] {
+    return this.users;
   }
 
   getUsers(): Observable<User[]>{
