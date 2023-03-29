@@ -22,17 +22,17 @@ export class PostsListComponent {
     this.activatedRoute.paramMap.subscribe(params => {
       this.userId = Number(params.get('id'));
       this.changeTrackerService.updateUser(this.userId);
-      this.getPosts(this.userId);
+      this.getPosts();
     });
   }
 
-  getPosts(userId: number) {
+  getPosts() {
     this.isLoading = true;
-    this.postsService.getPostsByUser(userId)
+    this.postsService.getPostsByUser(this.userId)
     .subscribe(posts => {
       this.posts = posts
       this.isLoading = false;
-    })
+    }, error => alert('Some error has occured'));
   }
 
   openEditPost(postId: number) {
@@ -41,8 +41,9 @@ export class PostsListComponent {
 
   updatePostsList(post: any) {
     const index = this.posts.findIndex(p => p.id == post.id);
-    if(index >= 0) Object.assign(this.posts[index], post);
-    else this.posts.push(post);
+    this.getPosts();
+    if(index == -1)   
+      this.changeTrackerService.updateUserOnPost();
   }
 
   clearSelectedPost() {

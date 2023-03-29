@@ -10,6 +10,7 @@ import { ChangeTrackerService } from '../services/change-tracker.service';
   selector: 'app-users',
   templateUrl: './users.component.html'
 })
+
 export class UsersComponent {
   users: User[];
   activeId: number = 0;
@@ -21,11 +22,16 @@ export class UsersComponent {
     
     this.changeTrackerService.currentUser.subscribe(id => {
       this.activeId = id;
+      console.log(this.activeId);
     }, error => error)
+
+    this.changeTrackerService.postsUpdated.subscribe(() => {
+      this.updateUsers();
+    });
   }
 
   updateUsers() {
-    this.getUsers();
+    this.getUser(this.activeId);
   }
 
   getUsers(){
@@ -35,5 +41,11 @@ export class UsersComponent {
       this.activeId = this.activeId || users[0].id;
       this.router.navigate(['users', this.activeId]);
     });
+  }
+
+  getUser(userId: number) {
+    let index: number = this.users.findIndex(u => u.id == userId);
+    this.usersService.getUser(userId)
+    .subscribe(user => Object.assign(this.users[index], new User(user)));
   }
 }

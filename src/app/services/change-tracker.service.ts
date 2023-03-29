@@ -7,8 +7,13 @@ import { Subject } from 'rxjs';
 
 export class ChangeTrackerService {
   currentUser = new Subject<number>();
+  postsUpdated = new Subject<void>();
 
   updateUser(userId: number) {
     this.currentUser.next(userId);
+  }
+
+  updateUserOnPost() {
+    this.postsUpdated.next();
   }
 }

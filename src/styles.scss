@@ -348,18 +348,23 @@ ul, ol {
 	    }
 		}
 
-		.post__title {
-			font-size: 1rem;
-			width: 98%;
-			font-weight: 700;
-			margin: 0;
-		}
+		.post__headline {
+			width: 100%;
+			
+			.post__title {
+				font-size: 1rem;
+				width: 98%;
+				font-weight: 700;
+				margin: 0;
+			}
 
-		.post__createdon {
-			font-size: 0.9rem;
-	    font-weight: 500;
-	    color: darken(map.get($theme-colors, "light-gray"), 50%);
+			.post__createdon {
+				font-size: 0.9rem;
+		    font-weight: 500;
+		    color: darken(map.get($theme-colors, "light-gray"), 50%);
+			}
 		}
+		
 	}
 
 	.post__content {
