@@ -40,8 +40,9 @@ export class PostsListComponent {
   }
 
   updatePostsList(post: any) {
-    this.posts = this.posts.filter(p => p.id != post.id);
-    this.posts.push(post);
+    const index = this.posts.findIndex(p => p.id == post.id);
+    if(index >= 0) Object.assign(this.posts[index], post);
+    else this.posts.push(post);
   }
 
   clearSelectedPost() {

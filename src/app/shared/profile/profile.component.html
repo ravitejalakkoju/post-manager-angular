@@ -1,0 +1,8 @@
+<div class="profile" *ngIf="profileUrl; else nameBlock">
+  <img [src]="profileUrl" alt="profile" class="profile-img">
+</div>
+<ng-template #nameBlock>
+	<div class="profile-name" [style.backgroundColor]="bgColor">
+   		<span>{{profileString}}</span>
+	</div>
+</ng-template>
